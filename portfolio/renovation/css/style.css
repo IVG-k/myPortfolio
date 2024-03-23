@@ -1,0 +1,1162 @@
+@charset "utf-8";
+
+body {
+  background: #fff;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-family: 'Noto Serif JP', serif;
+}
+
+/* 画像の切り替え（SPからCP） */
+.sp {
+  display: block !important;
+}
+
+.pc {
+  display: none !important;
+}
+
+/*************************
+チェックボックスがオフの場合
+************************* */
+.gMenu {
+  position: absolute;
+  margin-top: -45px;
+  width: 100%;
+  z-index: 99;
+}
+
+/* input要素 checkboxを非表示 */
+.gMenu .menu-btn {
+  display: none;
+}
+
+/* label要素 アイコン表示 */
+.gMenu .menu-icon {
+  position: absolute;
+  right: 15px;
+  top: 13px;
+  padding-top: 5px;
+  height: 12px;
+  cursor: pointer;
+}
+
+/* span要素 3本線の中央の線を作成 */
+
+.gMenu .menu-icon .navicon {
+  /* インラインをブロックレベルに変更 */
+  display: block;
+  /* 線の長さ */
+  width: 31px;
+  /* 線の太さ */
+  height: 2px;
+  /* 線の色 */
+  background: #B71B26;
+  /* ::beforeと::afterの基準要素 */
+  position: relative;
+}
+
+/* 三本線の上と下に配置する */
+.gMenu .menu-icon .navicon::before,
+.gMenu .menu-icon .navicon::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: #B71B26;
+  /* 基準要素のspanに対して絶対配置 */
+  position: absolute;
+  /* 三本戦からバツ印へ切り替える際のアニメーション */
+  transition: all 0.4s ease-out;
+}
+
+.gMenu .menu-icon .navicon::before {
+  top: 10px;
+}
+
+
+/* 三本線の上の線 */
+.gMenu .menu-icon .navicon::after {
+  top: -10px;
+}
+
+/* ul要素　メニュー */
+.gMenu .menu {
+  background: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  /* 非表示 */
+  max-height: 0;
+  overflow: hidden;
+  /* 非表示のアニメーション */
+  transition: max-height 0.6s;
+}
+
+/* 1つ目のli要素 */
+.gMenu .menu li:first-of-type {
+  padding-top: 50px;
+}
+
+/* a要素 */
+.gMenu .menu li a {
+  display: block;
+  padding: 24px 20px;
+  text-transform: uppercase;
+}
+
+/* a要素　マウスオーバー */
+.gMenu .menu li a:hover {
+  background: #f4f4f4;
+
+}
+
+/*************************
+  チェックボックスがオンの場合
+  ************************* */
+/* 非表示にしていたul.menuを表示 */
+.gMenu .menu-btn:checked~.menu {
+  max-height: 532px;
+  width: 100%;
+  /* 元は０px */
+  /* 表示する際のアニメーション */
+  transition: max-height 0.6s;
+}
+
+/* 三本線の中央の線を透明で非表示 */
+.gMenu .menu-btn:checked~.menu-icon .navicon {
+  background: transparent;
+  /* 元は#333 */
+}
+
+/* 三本線の上下の線を回転させてバツ印を作成 */
+
+.gMenu .menu-btn:checked~.menu-icon .navicon::before {
+  transform: rotate(-45deg);
+  top: 0;
+  /* 元10px */
+}
+
+.gMenu .menu-btn:checked~.menu-icon .navicon::after {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+
+
+/* ********************************
+section "main_top" 構成編集*************************************/
+/* headerの外側余白調整 */
+header h1 {
+  padding: 16px 0 16px 12px;
+
+}
+
+/* main_top画像のサイズ調整 */
+.main_top img {
+  height: 480px;
+  width: 100%;
+
+}
+
+/* main_top h1サイズ調整 */
+.main_top .title {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 48px 120px 0 120px;
+  letter-spacing: 0.01em;
+}
+
+/* 小文字のコンセプト編集 */
+.main_top .min_tittle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.01em;
+  font-size: 12px;
+  margin: 0 18px 24px;
+}
+
+/* コンセプトの真横に線を入れる */
+.main_top .min_tittle::before,
+.main_top .min_tittle::after {
+  border-top: 1px #223E69 solid;
+  content: "";
+  width: 4em;
+  margin: 8px 85px;
+}
+
+.main_top .min_tittle::before {
+  margin-right: 0.5em;
+}
+
+.main_top .min_tittle::after {
+  margin-left: 0.5em;
+}
+
+/* .main_top h2編集 */
+.main_top h2 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 20px;
+  margin: 0 75px;
+  margin-bottom: 16px;
+}
+
+.main_top p {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+  line-height: 2;
+  margin: 0 12px 80px;
+}
+
+/* ********************************/
+
+
+/* ********************************
+section "sub_1 .title" 構成編集*************************************/
+div .title {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 48px 130px 0 130px;
+  letter-spacing: 0.01em;
+}
+
+div .min_tittle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.01em;
+  font-size: 12px;
+  margin: 0 24px 24px;
+}
+
+div .min_tittle::before,
+div .min_tittle::after {
+  border-top: 1px #223E69 solid;
+  content: "";
+  width: 4em;
+  margin: 8px 85px;
+}
+
+div .min_tittle::before {
+  margin-right: 0.5em;
+}
+
+div .min_tittle::after {
+  margin-left: 0.5em;
+}
+
+/* ********************************/
+
+
+/* ************************************
+"photo_all のサイズ・スペース変更 *****************************************/
+.sub_1 img {
+  max-width: 351px;
+  margin: 0 12px;
+}
+
+/* 画像に対する説明、タイトルの編集 */
+.sub_1 h2 {
+  text-align: center;
+  margin: 8px;
+  font-size: 20px;
+}
+
+.sub_1 .text {
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  margin: 0 12px 0 12px;
+}
+
+/* moreに対する編集・位置設定 */
+.itme {
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  margin: 8px 0 48px;
+  text-align: right;
+
+}
+
+/* 疑似要素を用いて▸矢印を装飾する */
+.itme a::after {
+  content: "";
+  /* a要素はインラインなので幅・高さの指定が出来るようにdisplay要素を使って制限解除をする */
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  border-left-color: rgb(0, 0, 0);
+  /* border-left: px solid rgb(228, 0, 0);
+  border-top: px solid transparent;
+  border-bottom: px solid transparent; */
+  margin-left: 5px;
+}
+
+/* ********************************/
+
+/* ************************************
+color_change 範囲の変更 *****************************************/
+.color_change1 {
+  background: #223E690D;
+  padding: 16px 0 0
+}
+
+.color_change {
+  /* バックの色変更 */
+  background: #223E690D;
+  /* padding-top: 16px; */
+  padding-bottom: 16px;
+}
+
+.color_change1 .title {
+  /* 見出しのサイズ・調整 */
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  text-align: center;
+}
+
+.color_change1 .min_tittle {
+  /* 線を装飾する為の下準備とサイズ・ 位置調整*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.1em;
+  font-size: 12px;
+  color: #B71B26;
+  line-height: 1;
+  margin: 8px 0 0;
+  padding-bottom: 24px;
+}
+
+.color_change1 .min_tittle::before,
+.color_change1 .min_tittle::after {
+  /* 疑似要素での線の装飾　↓ */
+  border-top: 1px #B71B26 solid;
+  content: "";
+  width: 4em;
+}
+
+.color_change.min_tittle::before {
+  margin-left: 0.5em;
+}
+
+.color_change .min_tittle::after {
+  margin-right: 0.5em;
+}
+
+.color_change .itme1 {
+  /* from案内項目の編集 */
+  text-align: center;
+  position: relative;
+  background-color: #333;
+  color: #fff;
+  font-family: 'Noto Sans JP', sans-serif;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  width: 300px;
+  height: 32px;
+  padding-top: 7px;
+  margin: 0 auto;
+  border-radius: 20px;
+  margin-bottom: 32px;
+}
+
+/* 赤い矢印の透明度変更・作成 */
+.color_change #arrow1::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 41px;
+  right: 45%;
+  border: 15px solid transparent;
+  border-top-color: #B71B2699;
+
+}
+
+.color_change #arrow2::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 41px;
+  right: 45%;
+  border: 15px solid transparent;
+  border-top-color: #B71B26B3;
+}
+
+.color_change #arrow3::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 41px;
+  right: 45%;
+  border: 15px solid transparent;
+  border-top-color: #B71B26CC;
+}
+
+.color_change #arrow4::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 41px;
+  right: 45%;
+  border: 15px solid transparent;
+  border-top-color: #B71B26E6;
+}
+
+.color_change #arrow5::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 41px;
+  right: 45%;
+  border: 15px solid transparent;
+  border-top-color: #B71B26FF;
+}
+
+/* ********************************/
+
+/* ******************************
+ 　　　Q&A内の調整
+ *********************************/
+.sub_text {
+  /* エリア内の外余白の調整 */
+  margin: 80px 12px;
+}
+
+.Qa_colorQ,
+.Qa_colorA {
+  font-family: 'Noto Serif JP', serif;
+}
+
+.Qa_Q,
+.Qa,
+p {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  line-height: 1.5;
+}
+
+.sub_text .title {
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  text-align: center;
+}
+
+.sub_text .min_tittle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.01em;
+  font-size: 12px;
+  color: #223E69;
+  line-height: 1;
+  margin: 8px 0 24px;
+}
+
+.sub_text .min_tittle::before,
+.sub_text .min_tittle::after {
+  border-top: 1px #223E69 solid;
+  content: "";
+  width: 4em;
+}
+
+.sub_text .min_tittle::before {
+  margin-left: 1em;
+}
+
+.sub_text .min_tittle::after {
+  margin-right: 1em;
+}
+
+.Qa_color .Qa_colorQ {
+  /* Qの装飾及び調整 */
+  font-size: 20px;
+  width: 36px;
+  height: 36px;
+  color: #fff;
+  background-color: #333;
+  border-radius: 50%;
+  text-align: center;
+  padding-top: 3px;
+}
+
+.Qa_color {
+  display: flex;
+}
+
+.Qa_color p {
+  width: 80%;
+  padding: 10px 0 0;
+  margin-left: 9px;
+}
+
+.Qa_color .Qa_colorA {
+  /* Aの装飾及び調整 */
+  font-size: 20px;
+  width: 36px;
+  height: 36px;
+  color: #fff;
+  background-color: #B71B26;
+  border-radius: 50%;
+  text-align: center;
+  padding-top: 3px;
+}
+
+.Qa_color .Qa {
+  /*  */
+  padding-bottom: 24px;
+}
+
+.Qa_color .Qa_Q {
+  padding-bottom: 22px;
+}
+
+/* ********************************/
+
+/* ******************************
+ 　　　CONTACTの調整
+ *********************************/
+form {
+  padding: 16px 12px 24px;
+}
+
+.contact {
+  background-color: #223E6926;
+}
+
+form .title {
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  text-align: center;
+}
+
+form .min_tittle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.01em;
+  font-size: 12px;
+  color: #333;
+  line-height: 1;
+  margin: 8px 0 24px;
+}
+
+form .min_tittle::before,
+form .min_tittle::after {
+  border-top: 1px #333 solid;
+  content: "";
+  width: 4em;
+}
+
+form .min_tittle::before {
+  margin-left: 0.5em;
+}
+
+form .min_tittle::after {
+  margin-right: 0.5em;
+}
+
+nav p {
+  font-size: 16px;
+  font-weight: bold;
+  font-family: 'Noto Sans JP', sans-serif;
+  text-align: center;
+}
+
+nav span {
+  display: inline-block;
+  background-color: #B71B26;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 10px;
+  width: 40px;
+  height: 18px;
+  line-height: 18px;
+  vertical-align: 2px;
+  margin-left: 5px;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"] {
+  background-color: #fff;
+  width: 100%;
+  height: 32px;
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+
+.Label {
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+
+.Label label {
+  margin: 0 20px;
+  font-weight: 400;
+}
+
+.Post [type="text"] {
+  background-color: #fff;
+  height: 32px;
+  width: 35%;
+  /* margin-top: 8px; */
+  margin-bottom: 0;
+}
+
+.Post {
+  text-align: left;
+  margin-top: 8px;
+}
+
+.Post span {
+  color: #333;
+  font-size: 14px;
+  background-color: transparent;
+  width: 20px;
+  margin: 0;
+}
+
+textarea {
+  width: 100%;
+  height: 120px;
+  background-color: #fff;
+  margin: 8px 0 24px;
+}
+
+#Sub input {
+  font-family: 'Noto Serif JP', serif;
+  margin-left: 16.5px;
+  letter-spacing: 0.1em;
+  font-size: 16px;
+}
+
+#Sub {
+  margin: 24px auto 0;
+  line-height: 42px;
+  color: #fff;
+  background-color: #333;
+  width: 200px;
+  height: 48px;
+  position: relative;
+}
+
+#Sub::after {
+  /* ボタンの矢印 */
+  position: absolute;
+  content: "";
+  width: 9px;
+  height: 9px;
+  border: 6px solid transparent;
+  border-left: 6px solid #fff;
+  top: 19px;
+}
+
+/* ボタンhover時 */
+#Sub:hover {
+  background-color: rgb(64, 64, 97);
+}
+
+#Sub:hover::after {
+  border: 6px solid rgb(64, 64, 97);
+  border-left: 6px solid #fff;
+}
+
+
+
+/* ********************************/
+
+/* ******************************
+ 　　　footerの調整
+ *********************************/
+footer {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  margin-top: 80px;
+  background-color: #333;
+  width: 100%;
+  height: 45px;
+  text-align: center;
+  padding-top: 15px;
+}
+
+.look {
+  background-color: #333;
+  width: 46px;
+  height: 46px;
+  text-align: center;
+  padding-top: 15px;
+  position: fixed;
+  bottom: 45px;
+  right: 12px;
+}
+
+.look span {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-bottom: 2px solid #fff;
+  border-right: 2px solid #fff;
+  transform: rotate(225deg);
+}
+
+small {
+  color: #fff;
+}
+
+/* ******************************************** */
+
+/***********************************
+ PC版　設定・調整 
+ ***********************************/
+@media screen and (min-width:768px) {
+
+  /* 画像の切り替え（SPからCP） */
+  .pc {
+    display: block !important;
+  }
+
+  .sp {
+    display: none !important;
+  }
+
+
+
+  /* heder要素の変更 */
+  .gMenu .menu {
+    /* ハンバーガー解除・横並びに変更 */
+    overflow: visible;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .gMenu .menu-icon {
+    /* ハンバーガーバー非表示 */
+    display: none;
+  }
+
+  .gMenu .menu li:first-of-type {
+    /* li要素の余白内側無くす */
+    padding-top: 0;
+  }
+
+  .headertop {
+    /* h1とnavを横並びにする */
+    display: flex;
+  }
+
+  .gMenu {
+    margin-top: 0;
+  }
+
+  header h1 {
+    padding: 24px 0 24px 24px;
+  }
+
+  .menu li {
+    font-weight: 200;
+  }
+
+  /* section class="main_top"の設定 */
+  .main_top .title {
+    /* Concept編集 */
+    font-size: 42px;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    text-align: center;
+    margin-top: 160px;
+  }
+
+  .main_top h2 {
+    /* 家族が笑顔になれる編集 */
+    text-align: center;
+    margin: 48px 0 24px;
+    font-size: 28px;
+    letter-spacing: 0.1em;
+    line-height: 1;
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+
+  .main_top p {
+    text-align: center;
+    margin: 0 173px 160px;
+    letter-spacing: 0.1em;
+    line-height: 2;
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+
+  /*section SERVICE内の変更 */
+  div.flex {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 160px;
+    max-width: 1020px;
+    margin: 0 auto;
+  }
+
+  div .title {
+    font-size: 42px;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    text-align: center;
+  }
+
+  .sub_1 img {
+    max-width: 300px;
+    height: 210px;
+    margin: 0;
+  }
+
+  .sub_1 {
+    max-width: 300px;
+    height: 351px;
+  }
+
+  p .itme {
+    margin: 0;
+    /* margin-left: 200px; */
+  }
+
+
+
+  /* ****************** */
+
+  /* **********************flow内の変更 **********************/
+  .color_change1 {
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  .color_change1 .min_tittle {
+    margin: 0 auto;
+  }
+
+  .color_change {
+    margin: 0 auto;
+    padding-bottom: 0;
+    background: #223E690D;
+    padding-bottom: 48px;
+  }
+
+  .color_change1 .title {
+    font-size: 42px;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    padding: 48px 0 16px;
+  }
+
+  .flow1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 910px;
+    margin: 0 auto;
+    /* margin-bottom: 48px; */
+  }
+
+  .flow1 .itme1 {
+    border-radius: 30px;
+    width: 60px;
+    height: 280px;
+    margin: 0;
+    writing-mode: vertical-lr;
+    text-align: center;
+    font-size: 28px;
+    padding-left: 15px;
+  }
+
+  .flow1 #arrow1::after {
+    top: 120px;
+    left: 100px;
+    width: 0;
+    height: 0;
+    border: 30px solid transparent;
+    border-left-color: #B71B2699;
+  }
+
+  .flow1 #arrow2::after {
+    top: 120px;
+    left: 100px;
+    width: 0;
+    height: 0;
+    border: 30px solid transparent;
+    border-left-color: #B71B26B3;
+  }
+
+  .flow1 #arrow3::after {
+    top: 120px;
+    left: 100px;
+    width: 0;
+    height: 0;
+    border: 30px solid transparent;
+    border-left-color: #B71B26CC;
+  }
+
+  .flow1 #arrow4::after {
+    top: 120px;
+    left: 100px;
+    width: 0;
+    height: 0;
+    border: 30px solid transparent;
+    border-left-color: #B71B26E6;
+  }
+
+  .flow1 #arrow5::after {
+    top: 120px;
+    left: 100px;
+    width: 0;
+    height: 0;
+    border: 30px solid transparent;
+    border-left-color: #B71B26FF;
+  }
+
+  /* ****************** */
+
+  /* *********************
+Q&A内PC版変更***********************/
+  .sub_text {
+    max-width: 988px;
+    margin: 160px auto;
+  }
+
+  .sub_text .title {
+    font-size: 42px;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+  }
+
+  /* ****************** */
+
+  /* *********************
+Contact PC版変更***********************/
+  .contact {
+    background-color: #223E6926;
+  }
+
+  form {
+    width: 100%;
+    margin: 0 auto;
+    padding: 48px 0;
+  }
+
+  .contact nav {
+    background-color: #ffffff80;
+    max-width: 1020px;
+    margin: 0 auto;
+    padding: 48px 24px 48px;
+  }
+
+  /* PC版の列を変更 */
+  .flex_grid p {
+    font-size: 20px;
+  }
+
+  nav .flex_grid {
+    display: grid;
+    /* grid-template-rows:  5vw 5vw 5vw 6vw 5vw 5vw; */
+    grid-template-columns: 45% 55%;
+  }
+
+  /* ***************** */
+  .flex_grid .point_1 {
+    grid-row: 1/2;
+    grid-column: 1/2;
+  }
+
+  .flex_grid .Label {
+    grid-row: 1/2;
+    grid-column: 2/3;
+  }
+
+  /* ***************** */
+  .flex_grid .point_2 {
+    grid-row: 2/3;
+    grid-column: 1/2;
+  }
+
+  .flex_grid .Label_1 {
+    grid-row: 2/3;
+    grid-column: 2/3;
+  }
+
+  /* ***************** */
+  .flex_grid .point_3 {
+    grid-row: 3/4;
+    grid-column: 1/2;
+  }
+
+  .flex_grid .Label_2 {
+    grid-row: 3/4;
+    grid-column: 2/3;
+  }
+
+  /* ***************** */
+  .flex_grid .point_4 {
+    grid-row: 4/5;
+    grid-column: 1/2;
+  }
+
+  .flex_grid .Label_3 {
+    grid-row: 4/5;
+    grid-column: 2/3;
+  }
+
+  /* ***************** */
+  .flex_grid .point_5 {
+    grid-row: 5/6;
+    grid-column: 1/2;
+  }
+
+  .flex_grid .Label_4 {
+    grid-row: 5/6;
+    grid-column: 2/3;
+  }
+
+  /* ***************** */
+  .flex_grid .Label_5 {
+    grid-row: 6/7;
+    grid-column: 2/3;
+  }
+
+  /* ***************** */
+  .flex_grid .point_6 {
+    grid-row: 7/8;
+    grid-column: 1/2;
+  }
+
+  .flex_grid .Label_6 {
+    grid-row: 7/8;
+    grid-column: 2/3;
+  }
+
+  /* ***************** */
+  .flex_grid .point_7 {
+    grid-row: 8/9;
+    grid-column: 1/2;
+  }
+
+  .flex_grid .Label_7 {
+    grid-row: 8/9;
+    grid-column: 2/3;
+  }
+
+  /* ***************** */
+  .flex_grid .point_8 {
+    grid-row: 9/10;
+    grid-column: 1/2;
+  }
+
+  .flex_grid textarea {
+    grid-row: 9/10;
+    grid-column: 2/3;
+  }
+
+  /* ***************** */
+  .Label {
+    /* 位置の調整 */
+    text-align: left;
+    margin: 0;
+  }
+
+  .Label label {
+    margin: 0;
+    padding-right: 40px;
+  }
+
+  .Post input[type="text"] {
+    width: 222px;
+    height: 52px;
+    margin-top: 0;
+  }
+
+  input[type="text"],
+  input[type="tel"],
+  input[type="email"] {
+    background-color: #fff;
+    width: 100%;
+    height: 52px;
+    margin-top: 8px;
+    margin-bottom: 24px;
+  }
+
+  .Label_1,
+  .Label_2,
+  .Label_3 {
+    width: 50%;
+  }
+
+  .Post {
+    margin-bottom: 24px;
+  }
+
+  .point_1,
+  .point_2,
+  .point_3,
+  .point_4,
+  .point_5,
+  .point_6,
+  .point_7,
+  .point_8 {
+    text-align: right;
+    margin-right: 8px;
+  }
+
+  span {
+    text-align: center;
+  }
+
+  textarea {
+    width: 100%;
+    height: 208px;
+  }
+
+  #Sub {
+    padding-top: 10px;
+    width: 300px;
+    height: 68px;
+  }
+
+  #Sub input {
+    font-size: 20px;
+    margin: 0;
+  }
+
+  #Sub::after {
+    top: 24px;
+    margin-left: 6px;
+    width: 10px;
+    height: 10px;
+    border: 10px solid transparent;
+    border-left: 10px solid #fff;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
